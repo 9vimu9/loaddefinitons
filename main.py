@@ -6,12 +6,14 @@ from Core.Models.Definition import Definition
 
 if __name__ == '__main__':
     word_list = file_to_list()
-    word_list = word_list[:10]
+    # word_list = word_list[:2000]
 
     definition_api = FreeDictionaryAPI()
     corpus = Corpus()
     definition = Definition()
     for word in word_list:
+        if len(corpus.find_by_word(word)) > 0:
+            continue
         definitions = definition_api.get_definition(word)
         if definitions is None:
             continue

@@ -9,10 +9,6 @@ class Corpus:
     def __init__(self):
         self.db_connector = MySQLConnector()
 
-    def list_to_corpus(self, word_list):
-        for word in word_list:
-            print(self.save(word))
-
     def save(self, word):
         query = "INSERT INTO `corpuses` (`word`, `created_at`, `updated_at`) VALUES ('" + word + "', now(), now())"
         try:
@@ -32,6 +28,7 @@ class Corpus:
         self.db_connector.connection.commit()
 
     def find_by_word(self, word):
-        self.db_connector.cursor.execute("SELECT * FROM corpuses WHERE word=" + word)
+        query = "SELECT * FROM corpuses WHERE word='" + word+"'"
+        self.db_connector.cursor.execute(query)
         return self.db_connector.cursor.fetchall()
 
