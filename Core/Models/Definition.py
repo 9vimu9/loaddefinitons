@@ -17,7 +17,6 @@ class Definition:
         query = "INSERT INTO `definitions` (`definition`, `corpus_id`, `word_class`, `created_at`, `updated_at`) VALUES ('" + definition + "', " + str(
             corpus_id) + ", " + str(word_class_id) + ", now(), now())"
         try:
-            print(query)
             self.db_connector.cursor.execute(query)
             self.db_connector.connection.commit()
             last_id = self.db_connector.cursor.lastrowid
