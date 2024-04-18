@@ -2,7 +2,7 @@ import mysql.connector
 
 from Core.MySqlConnector import MySQLConnector
 
-word_class_enum = dict(NOUN=1, VERB=2, ADJECTIVE=3, ADVERB=4, PREPOSITION=5, DETERMINER=6, PRONOUN=7, CONJUNCTION=8)
+word_class_enum = dict(NOUN=1, VERB=2, ADJECTIVE=3, ADVERB=4, PREPOSITION=5, DETERMINER=6, PRONOUN=7, CONJUNCTION=8, INTERJECTION=9)
 
 
 class Definition:
