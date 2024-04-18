@@ -1,8 +1,8 @@
 from Core.MySqlConnector import MySQLConnector
 from Core.Lists.JeremyRifkinWordlist import file_to_list
-from Core.Corpus import Corpus
+from Core.Models.Corpus import Corpus
 from Core.Definitions.FreeDictionaryAPI import FreeDictionaryAPI
-from Core.Definition import Definition
+from Core.Models.Definition import Definition
 
 if __name__ == '__main__':
     word_list = file_to_list()
