@@ -2,7 +2,8 @@ import mysql.connector
 
 from Core.MySqlConnector import MySQLConnector
 
-word_class_enum = dict(NOUN=1, VERB=2, ADJECTIVE=3, ADVERB=4, PREPOSITION=5, DETERMINER=6, PRONOUN=7, CONJUNCTION=8, INTERJECTION=9)
+word_class_enum = dict(NOUN=1, VERB=2, ADJECTIVE=3, ADVERB=4, PREPOSITION=5, DETERMINER=6, PRONOUN=7, CONJUNCTION=8,
+                       INTERJECTION=9)
 
 
 class Definition:
@@ -13,7 +14,7 @@ class Definition:
 
     def save(self, corpus_id, word_class, definition):
         definition = definition.replace("'", "\\'")
-        word_class_id = word_class_enum[word_class.upper()]
+        word_class_id = word_class_enum[self.word_class_mapper(word_class)]
         query = "INSERT INTO `definitions` (`definition`, `corpus_id`, `word_class`, `created_at`, `updated_at`) VALUES ('" + definition + "', " + str(
             corpus_id) + ", " + str(word_class_id) + ", now(), now())"
         try:
@@ -26,3 +27,9 @@ class Definition:
 
         except mysql.connector.IntegrityError:
             return None
+
+    def word_class_mapper(self, word_class):
+        word_class = word_class.upper()
+        if word_class == 'PROPER NOUN':
+            return 'NOUN'
+        return word_class
