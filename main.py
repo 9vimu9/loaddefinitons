@@ -1,3 +1,5 @@
+import sys
+
 from Core.MySqlConnector import MySQLConnector
 from Core.Lists.JeremyRifkinWordlist import file_to_list
 from Core.Models.Corpus import Corpus
@@ -5,8 +7,11 @@ from Core.Definitions.FreeDictionaryAPI import FreeDictionaryAPI
 from Core.Models.Definition import Definition
 
 if __name__ == '__main__':
+    limits = sys.argv
+    start_index = int(sys.argv[1])
+    end_index = int(sys.argv[2])
     word_list = file_to_list()
-    # word_list = word_list[:2000]
+    word_list = word_list[start_index:end_index]
 
     definition_api = FreeDictionaryAPI()
     corpus = Corpus()
