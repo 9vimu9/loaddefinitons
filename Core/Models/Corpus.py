@@ -10,6 +10,7 @@ class Corpus:
         self.db_connector = MySQLConnector()
 
     def save(self, word):
+        word = word.replace("'", "\\'")
         query = "INSERT INTO `corpuses` (`word`, `created_at`, `updated_at`) VALUES ('" + word + "', now(), now())"
         try:
             self.db_connector.cursor.execute(query)
@@ -28,6 +29,7 @@ class Corpus:
         self.db_connector.connection.commit()
 
     def find_by_word(self, word):
+        word = word.replace("'", "\\'")
         query = "SELECT * FROM corpuses WHERE word='" + word+"'"
         self.db_connector.cursor.execute(query)
         return self.db_connector.cursor.fetchall()
