@@ -1,8 +1,12 @@
 import requests
 from Core.Log import Log
 import json
+import os
+from dotenv import load_dotenv
 
-URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+load_dotenv()
+
+URL = os.getenv('FREE_DICTIONARY_API_URL')
 
 
 class FreeDictionaryAPI:
@@ -31,4 +35,3 @@ class FreeDictionaryAPI:
         except requests.exceptions.JSONDecodeError as e:
             self.log.logger.critical(str(e))
             return None
-
