@@ -16,9 +16,6 @@ about
 above
 abst
 ac
-accordance
-according
-accordingly
 across
 act
 actually
@@ -50,7 +47,6 @@ amongst
 amount
 an
 and
-announce
 another
 any
 anybody
@@ -196,10 +192,6 @@ date
 dc
 dd
 de
-definitely
-describe
-described
-detail
 df
 di
 did
@@ -257,7 +249,6 @@ ep
 eq
 er
 es
-especially
 est
 et
 et-al
@@ -308,8 +299,6 @@ ft
 fu
 full
 further
-furthermore
-fy
 g
 ga
 gave
@@ -331,7 +320,6 @@ gone
 got
 gotten
 gr
-greetings
 gs
 gy
 h
@@ -359,7 +347,6 @@ help
 hence
 her
 here
-hereafter
 hereby
 herein
 heres
@@ -419,7 +406,6 @@ immediately
 importance
 important
 in
-inasmuch
 inc
 indeed
 index
@@ -658,8 +644,6 @@ p1
 p2
 p3
 page
-pagecount
-pages
 par
 part
 particular
@@ -686,17 +670,14 @@ po
 poorly
 possible
 possibly
-potentially
 pp
 pq
 pr
-predominantly
 present
 presumably
 previously
 primarily
 probably
-promptly
 proud
 provides
 ps
@@ -732,10 +713,7 @@ regards
 related
 relatively
 research
-research-articl
-respectively
 resulted
-resulting
 results
 rf
 rh
@@ -778,7 +756,6 @@ seeming
 seems
 seen
 self
-selves
 sensible
 sent
 serious
@@ -824,7 +801,6 @@ some
 somebody
 somehow
 someone
-somethan
 something
 sometime
 sometimes
@@ -967,8 +943,6 @@ uk
 um
 un
 under
-unfortunately
-unless
 unlike
 unlikely
 until
