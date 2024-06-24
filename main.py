@@ -2,10 +2,11 @@ import sys
 from time import sleep
 
 from Core.MySqlConnector import MySQLConnector
-from Core.Lists.EnglishSubtitleWordFrequency import file_to_list
+from Core.Lists.JeremyRifkinWordlist import file_to_list
 from Core.Models.Corpus import Corpus
 from Core.Definitions.FreeDictionaryAPI import FreeDictionaryAPI
 from Core.Definitions.DpVenturesAPI import DpVenturesAPI
+from Core.Definitions.WIkipediaApi import WIkipediaApi
 from Core.Models.Definition import Definition
 
 if __name__ == '__main__':
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     word_list = file_to_list()
     word_list = word_list[start_index:end_index]
 
-    definition_api = DpVenturesAPI()
+    definition_api = WIkipediaApi()
     corpus = Corpus()
     definition = Definition()
     for word in word_list:
@@ -30,4 +31,4 @@ if __name__ == '__main__':
 
         for meaning in definitions:
             definition.save(corpus_dict['id'], meaning['word_class'], meaning['definition'])
-        sleep(0.1)
+        sleep(0.05)

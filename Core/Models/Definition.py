@@ -13,11 +13,11 @@ class Definition:
         self.db_connector = MySQLConnector()
 
     def save(self, corpus_id, word_class, definition):
-        definition = definition.replace("'", "\\'")
-        word_class_id = word_class_enum[self.word_class_mapper(word_class)]
-        query = "INSERT INTO `definitions` (`definition`, `corpus_id`, `word_class`, `created_at`, `updated_at`) VALUES ('" + definition + "', " + str(
-            corpus_id) + ", " + str(word_class_id) + ", now(), now())"
         try:
+            definition = definition.replace("'", "\\'")
+            word_class_id = word_class_enum[self.word_class_mapper(word_class)]
+            query = "INSERT INTO `definitions` (`definition`, `corpus_id`, `word_class`, `created_at`, `updated_at`) VALUES ('" + definition + "', " + str(
+                corpus_id) + ", " + str(word_class_id) + ", now(), now())"
             self.db_connector.cursor.execute(query)
             self.db_connector.connection.commit()
             last_id = self.db_connector.cursor.lastrowid
@@ -25,7 +25,7 @@ class Definition:
             rows = self.db_connector.cursor.fetchall()
             return rows[0]
 
-        except mysql.connector.IntegrityError:
+        except (mysql.connector.IntegrityError, KeyError):
             return None
 
     def word_class_mapper(self, word_class):
